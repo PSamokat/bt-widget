@@ -1,10 +1,10 @@
 import './App.css';
-import CircularProgressbar from './components/circular-progressbar';
+import CircularProgressBar from './components/circular-progressbar';
 
 function App() {
   return (
     <div>
-      <CircularProgressbar/>
+      <CircularProgressBar/>
     </div>
   );
 }

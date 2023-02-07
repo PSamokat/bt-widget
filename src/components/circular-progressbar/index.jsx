@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {CircularProgressbarWithChildren,buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-import {innerChart, outerChart} from '../utils/chart-config'
-import ProgressProvider from '../utils/progress-provider'
+import {innerChart, outerChart} from './utils/chart-config'
+import ProgressProvider from './utils/progress-provider'
 
-import './circular-progressbar.scss'
-import  slash from '../assets/Slash.svg'
+import './styles.scss'
+import  slash from './assets/Slash.svg'
 
-const CircularProgressbar = ({props}) => {
+const CircularProgressBar = () => {
 		
 		const [predict, setPredict] = useState({current: 222555, target: 233555})
 		const [nit, setNit] = useState({current: 222555, target: 233555})
@@ -88,7 +88,6 @@ const CircularProgressbar = ({props}) => {
 																								</div>
 																						</CircularProgressbarWithChildren>}
 																		</ProgressProvider>
-																		
 																</div>
 																<div className='outer__percent'>
 																		<b className='small'>{value}</b>
@@ -104,4 +103,4 @@ const CircularProgressbar = ({props}) => {
 		);
 };
 
-export default CircularProgressbar;
+export default CircularProgressBar;
