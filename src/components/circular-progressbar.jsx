@@ -3,7 +3,8 @@ import {CircularProgressbarWithChildren,buildStyles} from "react-circular-progre
 import "react-circular-progressbar/dist/styles.css";
 
 import './circular-progressbar.css'
-import {innerChart, outerChart} from './chart-config'
+import {innerChart, outerChart} from '../utils/chart-config'
+import ProgressProvider from '../utils/progress-provider'
 const CircularProgressbar = () => {
 		const bigValue = 95;
 		const smallValue = 96;
@@ -14,30 +15,38 @@ const CircularProgressbar = () => {
 								
 								</div>
 								<div className='widget__chart outer'>
-										<CircularProgressbarWithChildren
-												value={smallValue}
-												circleRatio={outerChart.circleRatio}
-												strokeWidth={outerChart.strokeWidth}
-												styles={buildStyles(outerChart.styles)}
-										>
-												<div className='inner'>
+										<ProgressProvider valueStart={0} valueEnd={smallValue}>
+												{value =>
 														<CircularProgressbarWithChildren
-																value={bigValue}
-																circleRatio={innerChart.circleRatio}
-																strokeWidth={innerChart.strokeWidth}
-																styles={buildStyles(innerChart.styles)}
+																value={value}
+																circleRatio={outerChart.circleRatio}
+																strokeWidth={outerChart.strokeWidth}
+																styles={buildStyles(outerChart.styles)}
 														>
-																<div className='inner__percent'>
-																		<b className='big'>{bigValue}</b>
+																<div className='inner'>
+																		<ProgressProvider valueStart={0} valueEnd={bigValue}>
+																				{value =>
+																						<CircularProgressbarWithChildren
+																								value={value}
+																								circleRatio={innerChart.circleRatio}
+																								strokeWidth={innerChart.strokeWidth}
+																								styles={buildStyles(innerChart.styles)}
+																						>
+																								<div className='inner__percent'>
+																										<b className='big'>{value}</b>
+																										<span className='small'>%</span>
+																								</div>
+																						</CircularProgressbarWithChildren>}
+																		</ProgressProvider>
+																		
+																</div>
+																<div className='outer__percent'>
+																		<b className='small'>{value}</b>
 																		<span className='small'>%</span>
 																</div>
-														</CircularProgressbarWithChildren>
-												</div>
-												<div className='outer__percent'>
-														<b className='small'>{smallValue}</b>
-														<span className='small'>%</span>
-												</div>
-										</CircularProgressbarWithChildren>
+														</CircularProgressbarWithChildren>}
+										</ProgressProvider>
+										
 								</div>
 						</div>
 				</div>
