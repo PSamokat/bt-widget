@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.widget {
+    position: relative;
+}
+
+.widget__data {
+    height: 100px;
+    width: 250px;
+    border: 1px solid red;
+}
+
+.widget__chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.inner {
+    width: 80%;
+}
+
+.inner__percent {
+    margin-top: -5px;
+    margin-left: 15px;
+}
+
+.outer__percent {
+    position: absolute;
+    right: 0;
+    top: 44%;
+    transform: translateX(120%);
+}
+
+.big {
+    font-size: 250%;
+}
+
+.small {
+    font-size: 100%;
+}
