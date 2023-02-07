@@ -1,21 +1,53 @@
-import React from 'react';
-import {CircularProgressbarWithChildren,buildStyles} from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
+import React, {useState} from 'react';
+import {CircularProgressbarWithChildren,buildStyles} from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
-import './circular-progressbar.css'
 import {innerChart, outerChart} from '../utils/chart-config'
 import ProgressProvider from '../utils/progress-provider'
-const CircularProgressbar = () => {
-		const bigValue = 95;
-		const smallValue = 96;
+
+import './circular-progressbar.scss'
+import  slash from '../assets/Slash.svg'
+
+const CircularProgressbar = ({props}) => {
+		
+		
+		const changeValueHandler = () => {
+		
+		}
+		function numberWithSpaces(x) {
+				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+		}
+		
 		return (
 				<div className='container'>
 						<div className='widget'>
-								<div className='widget__data'>
-								
+								<div className='info'>
+										<div className='info__data'>
+												<div className='label'>нит</div>
+												<div className='stats'>
+														<div className='stats__current'>{numberWithSpaces(222555)}</div>
+														<div>
+																<img className='slash' src={slash}/>
+														</div>
+														<div className='stats__full'>{numberWithSpaces(233555)}</div>
+												</div>
+										</div>
+										<div className='info__data'>
+												<div className='label'>прогноз</div>
+												<div className='stats'>
+														<div className='stats__current'>{numberWithSpaces(222555)}</div>
+														<div>
+																<img className='slash' src={slash}/>
+														</div>
+														<div className='stats__full'>{numberWithSpaces(233555)}</div>
+												</div>
+										</div>
 								</div>
 								<div className='widget__chart outer'>
-										<ProgressProvider valueStart={0} valueEnd={smallValue}>
+										<ProgressProvider
+												valueStart={0}
+												valueEnd={96}
+										>
 												{value =>
 														<CircularProgressbarWithChildren
 																value={value}
@@ -24,7 +56,10 @@ const CircularProgressbar = () => {
 																styles={buildStyles(outerChart.styles)}
 														>
 																<div className='inner'>
-																		<ProgressProvider valueStart={0} valueEnd={bigValue}>
+																		<ProgressProvider
+																				valueStart={0}
+																				valueEnd={95}
+																		>
 																				{value =>
 																						<CircularProgressbarWithChildren
 																								value={value}
@@ -34,7 +69,7 @@ const CircularProgressbar = () => {
 																						>
 																								<div className='inner__percent'>
 																										<b className='big'>{value}</b>
-																										<span className='small'>%</span>
+																										<b className='small'>%</b>
 																								</div>
 																						</CircularProgressbarWithChildren>}
 																		</ProgressProvider>
@@ -49,6 +84,7 @@ const CircularProgressbar = () => {
 										
 								</div>
 						</div>
+						<button onClick={changeValueHandler}>Rand</button>
 				</div>
 		);
 };
