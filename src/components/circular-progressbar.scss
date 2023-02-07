@@ -16,6 +16,7 @@ $black: #000;
         top: 0;
         left: 0;
         transform: translateY(-50%) translateX(-50%);
+        width: 75%;
     }
 }
 
@@ -70,7 +71,7 @@ $black: #000;
             font-weight: bold;
             color: $black;
         }
-        &__full {
+        &__target {
             font-weight: bold;
             color: $grey;
         }
