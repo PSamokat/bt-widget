@@ -1,22 +1,29 @@
 $grey: #969696;
 $black: #000;
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
 }
 
 .widget {
     position: relative;
-
+    width: 30vw;
     &__chart {
         position: absolute;
         top: 0;
         left: 0;
         transform: translateY(-50%) translateX(-50%);
-        width: 75%;
+        width: 65%;
     }
 }
 
@@ -24,65 +31,62 @@ $black: #000;
     width: 80%;
 
     &__percent {
-        margin-top: -5px;
-        margin-left: 15px;
+        margin-top: -0.5vh;
+        margin-left: 1.5vw;
     }
 
     .big {
-        font-size: 250%;
+        font-size: 2.5vw;
     }
     .small {
-        font-size: 130%;
+        font-size: 2vw;
     }
 }
 .outer {
     &__percent {
         position: absolute;
         right: 0;
-        top: 40%;
+        bottom: 50%;
         transform: translateX(120%);
     }
 
     .small {
-        font-size: 130%;
+        font-size: 1.5vw;
     }
 
 }
 
 .info {
-    padding: 30px;
-
+    padding: 2vw;
     &__data {
-        padding: 3px;
+        padding-bottom: 0.5vh;
     }
 
     .label {
         text-transform: uppercase;
-        font-size: 130%
+        font-size: 1.5vw;
     }
 
     .stats {
         display: flex;
-        gap: 5px;
+        gap: 1vw;
         align-items: center;
-        font-size: 250%;
+        font-size: 3vw;
 
         &__current {
             font-weight: bold;
             color: $black;
         }
+
         &__target {
             font-weight: bold;
             color: $grey;
         }
     }
+
     .slash {
-        height: 32px;
-        width: 20px;
+        height: 2.5vw;
+        width: 2vw;
         transform: translateY(10%);
     }
 }
-
-
-
-

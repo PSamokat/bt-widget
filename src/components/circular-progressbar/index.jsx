@@ -90,8 +90,7 @@ const CircularProgressBar = () => {
 																		</ProgressProvider>
 																</div>
 																<div className='outer__percent'>
-																		<b className='small'>{value}</b>
-																		<span className='small'>%</span>
+																		<span className='small'>{value}%</span>
 																</div>
 														</CircularProgressbarWithChildren>}
 										</ProgressProvider>
